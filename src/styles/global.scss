@@ -1,0 +1,75 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  .font-border {
+    -webkit-text-stroke: 4px black;
+  }
+
+  .font-border-md {
+    -webkit-text-stroke: 3px black;
+  }
+
+  .font-border-sm {
+    -webkit-text-stroke: 2px black;
+  }
+  
+  .bg-grid {
+    background: linear-gradient(#FFF8, transparent 1px, transparent 47px, #FFF8 47px), linear-gradient(90deg, #FFF8, transparent 1px, transparent 47px, #FFF8 47px);
+    background-size: 48px 48px;
+    position: relative;
+    z-index: -2;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(#FF611F00, #FF611F 70%);
+      z-index: -1;
+    }
+  }
+}
+
+@layer components {
+  .title {
+    @apply text-9xl font-bold drop-shadow-title font-border;
+  }
+
+  .title-md {
+    @apply text-7xl font-bold drop-shadow-sparkles font-border-md;
+  }
+
+  .title-sm {
+    @apply text-5xl font-bold drop-shadow-sparkles font-border-sm;
+  }
+
+  .title-mobile {
+    @apply text-4xl text-center font-bold drop-shadow-sparkles font-border-sm;
+  }
+}
+
+@font-face {
+  font-family: Balgin;
+  src: url(../assets/fonts/Balgin-Black.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Balgin Display;
+  src: url(../assets/fonts/BalginDisplay-Black.otf);
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Balgin;
+}
+
+h1 {
+  font-family: Balgin Display;
+}
