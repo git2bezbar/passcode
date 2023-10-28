@@ -22,7 +22,7 @@ export default function App() {
     isValid: true,
     isFinished: false,
     currentNumber: 0,
-    currentPasscode: 0 || parseInt(localStorage.currentPasscode),
+    currentPasscode: parseInt(localStorage?.currentPasscode) || 0,
     numberOfSum: 0,
     passcode: [
       79,
