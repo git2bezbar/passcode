@@ -19,7 +19,7 @@ export default function App() {
   const [state, dispatch] = useReducer((state: State, action: any) => {
     return { ...state, ...action };
   }, {
-    isValid: true,
+    isValid: false,
     isFinished: false,
     currentNumber: 0,
     currentPasscode: parseInt(localStorage?.currentPasscode) || 0,
@@ -77,9 +77,9 @@ export default function App() {
   return (
     <>
       <div className="min-h-screen min-w-screen bg-orange-red bg-grid flex flex-col justify-center items-center p-8 gap-8">
-        <div className="absolute left-0 right-0 top-0 p-8 pb-16 sm:pb-12 flex justify-center items-center z-10">
+        <div className="flex justify-center items-center">
           <div className={`max-w-md flex justify-center items-center grow gap-8 transition-all duration-500 ${state.isFinished ? "opacity-1 translate-y-0" : "opacity-0 -translate-y-full"}`}>
-            <Snackbar isValid={state.isValid}>{state.isValid ? "Certified GOAT 🐐" : "Flop monumental j’ai jamais vu ça 💀"}</Snackbar>
+            <Snackbar isValid={state.isValid}>{state.isValid ? "Tu entres dans le cercle des Certified GOAT 🐐" : "Flop monumental j’ai jamais vu ça 💀"}</Snackbar>
           </div>
         </div>
         <Passcode isValid={state.isValid} isFinished={state.isFinished}>
@@ -95,7 +95,7 @@ export default function App() {
             <KeyPadButton key={i} onClick={() => { if (!state.isFinished) handleKeyPadClick(i); }}>{++i}</KeyPadButton>
           ))}
         </div>
-        <div className="absolute left-0 right-0 bottom-0 p-8 pb-16 sm:pb-12 flex justify-center items-center z-10">
+        <div className="flex justify-center items-center self-stretch pt-16">
           <div className="max-w-md flex justify-center items-center grow gap-8">
             {state.currentPasscode > 0 && <Button onClick={previousStep}>Précédent</Button>}
             {state.currentPasscode < (state.passcode.length - 1) && <Button onClick={nextStep}>Suivant</Button>}
