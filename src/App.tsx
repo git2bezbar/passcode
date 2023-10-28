@@ -16,7 +16,7 @@ export default function App() {
     passcode: number[];
   }
 
-  const [state, dispatch] = useReducer((state: State, action) => {
+  const [state, dispatch] = useReducer((state: State, action: any) => {
     return { ...state, ...action };
   }, {
     isValid: true,
